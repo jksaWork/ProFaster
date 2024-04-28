@@ -24,4 +24,4 @@ jobs:
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSHKEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          script: "cd /home/u386930234/domains/salla.proofast.com/public_html/ProFaster && ./.scripts/deploy_dev.sh"
+          script: "cd /home/u386930234/domains/salla.proofast.com/public_html/ProFaster &&  ./.scripts/deploy_dev.sh"
