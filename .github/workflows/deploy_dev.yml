@@ -8,9 +8,7 @@ on:
       - dev
   # pull_request:
 
-
 # Authenticate to the the server via ssh
-# and run our deployment script
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -24,4 +22,4 @@ jobs:
           port: ${{ secrets.PORT }}
           key: ${{ secrets.SSHKEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          script: "cd /home/u386930234/domains/salla.proofast.com/public_html/ProFaster &&  ./.scripts/deploy_dev.sh"
+          script: "cd /home/u386930234/domains/salla.proofast.com/public_html &&  ./.scripts/deploy_dev.sh"
