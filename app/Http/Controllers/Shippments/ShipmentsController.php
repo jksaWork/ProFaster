@@ -60,7 +60,7 @@ class ShipmentsController extends Controller
                 ];
                 
 
-                $Client = SallaMerchant::with('Client')->where('merchant_id', $request->merchant)->first()->Client();  
+                $Client = SallaMerchant::with('Client')->where('merchant_id', $request->merchant)->first()->Client;  
               
                 $status = $Client->update([
                     "in_accounts_order" => 1,
