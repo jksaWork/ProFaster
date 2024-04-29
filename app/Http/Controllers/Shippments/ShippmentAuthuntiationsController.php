@@ -19,6 +19,7 @@ class ShippmentAuthuntiationsController extends Controller
             'redirectUri'  => 'https://salla.proofast.com/webhock' , // the url for current page in your service
         ]);
      
+        dd("Hi There");
         if (!isset($_GET['code']) || empty($_GET['code'])) {
             // If we don't have an authorization code then get one
             $authUrl = $provider->getAuthorizationUrl([
