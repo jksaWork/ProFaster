@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Shippments;
 
 use App\Http\Controllers\Controller;
 use App\Models\Client;
+use App\Models\SallaMerchant;
 use Exception;
 use Illuminate\Http\Request;
 use Salla\OAuth2\Client\Provider\Salla;
@@ -47,7 +48,8 @@ class ShippmentAuthuntiationsController extends Controller
 
             $Client_json = json_encode($user->toArray());
 
-            $Client = Client::updateOrCreate(
+            
+            $Client = SallaMerchant::updateOrCreate(
                 ['merchant_id' => $user->toArray()['merchant']['id']],
                 [
                     'access_token' =>$token->getToken() ,
