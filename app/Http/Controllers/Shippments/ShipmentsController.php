@@ -7,6 +7,7 @@ use App\Models\Client;
 use App\Models\ClientServicePrice;
 use App\Models\Order;
 use App\Models\orderTracking;
+use App\Models\SallaMerchant;
 use App\Models\SerialSetting;
 use App\Models\Service;
 use Exception;
@@ -20,8 +21,8 @@ class ShipmentsController extends Controller
 
     public function webhock2(Request $request)
     {
-        
-       
+        info('--------------- new Shippment Request Was Comming ----------------------');
+        info($request);
         if($request->event == 'shipment.creating'){
             try {
                 
@@ -59,7 +60,7 @@ class ShipmentsController extends Controller
                 ];
                 
 
-                $Client = Client::where('merchant_id', $request->merchant)->first();  
+                $Client = SallaMerchant::with('Client')->where('merchant_id', $request->merchant)->first()->Client();  
               
                 $status = $Client->update([
                     "in_accounts_order" => 1,

@@ -16,4 +16,10 @@ class SallaMerchant extends Model
         'refresh_token',
         'expired_date',
     ];
+
+
+    public function Client()
+    {
+        return $this->belongsTo(Client::class, 'client_id');
+    }
 }
