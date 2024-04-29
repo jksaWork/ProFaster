@@ -51,8 +51,8 @@ use Illuminate\Support\Facades\Http;
 |
 */
 use App\Http\Controllers\SendEmailController;
-use App\Http\Controllers\ShippmentAuthuntiationsController;
 use App\Http\Controllers\Shippments\ShipmentsController;
+use App\Http\Controllers\Shippments\ShippmentAuthuntiationsController as ShippmentsShippmentAuthuntiationsController;
 
 Route::get('send-email', [SendEmailController::class, 'index']);
 // Route::get('/', function () {
@@ -64,6 +64,6 @@ Route::get('send-email', [SendEmailController::class, 'index']);
 | change language route
 |--------------------------------------------------------------------------*/
 
-Route::get('webhock', [ShippmentAuthuntiationsController::class , 'getTokenWithCodeAndUpdateClientFilleds']);
+Route::get('webhock', [ShippmentsShippmentAuthuntiationsController::class , 'getTokenWithCodeAndUpdateClientFilleds']);
 Route::get('webhock2', [ShipmentsController::class , 'webhock2']);
 

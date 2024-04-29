@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Shippments;
 
-use App\Events\NewCleintInitApp;
+use App\Http\Controllers\Controller;
 use App\Models\Client;
 use Exception;
 use Illuminate\Http\Request;
@@ -23,7 +23,7 @@ class ShippmentAuthuntiationsController extends Controller
         info("Inter Affter Get Profile Id");
 
 
-        dd($provider);
+        // dd($provider);
 
         if (!isset($_GET['code']) || empty($_GET['code'])) {
             // If we don't have an authorization code then get one
