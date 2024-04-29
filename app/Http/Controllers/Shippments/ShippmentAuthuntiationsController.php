@@ -14,9 +14,9 @@ class ShippmentAuthuntiationsController extends Controller
     {
         // for dev -----------------------------
         $provider = new Salla([
-            'clientId'     =>   'c5e26ae228c097732386852c0194ade7' , #'c5e26ae228c097732386852c0194ade7', // The client ID assigned to you by Salla
-            'clientSecret' =>  '470e3ce6a091ce4a43fe30be1792313c' ,  #'470e3ce6a091ce4a43fe30be1792313c', // The client password assigned to you by Salla
-            'redirectUri'  => 'https://dev.sala.gulfsmo.net/webhock' , // the url for current page in your service
+            'clientId'     =>   '7fb2038a-e26e-4244-8d5a-343354f21b8d' , #'c5e26ae228c097732386852c0194ade7', // The client ID assigned to you by Salla
+            'clientSecret' =>  '5e0396f5884611a73db7cc71732d2f11' ,  #'470e3ce6a091ce4a43fe30be1792313c', // The client password assigned to you by Salla
+            'redirectUri'  => 'https://salla.proofast.com/webhock' , // the url for current page in your service
         ]);
      
         if (!isset($_GET['code']) || empty($_GET['code'])) {
