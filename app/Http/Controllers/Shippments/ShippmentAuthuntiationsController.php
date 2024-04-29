@@ -12,6 +12,7 @@ class ShippmentAuthuntiationsController extends Controller
 {
     public function  getTokenWithCodeAndUpdateClientFilleds(Request $req)
     {
+        info("Inter The Web Hock Code");
         // for dev -----------------------------
         $provider = new Salla([
             'clientId'     =>   '7fb2038a-e26e-4244-8d5a-343354f21b8d' , #'c5e26ae228c097732386852c0194ade7', // The client ID assigned to you by Salla
@@ -19,7 +20,11 @@ class ShippmentAuthuntiationsController extends Controller
             'redirectUri'  => 'https://salla.proofast.com/webhock' , // the url for current page in your service
         ]);
      
+        info("Inter Affter Get Profile Id");
+
+
         dd($provider);
+
         if (!isset($_GET['code']) || empty($_GET['code'])) {
             // If we don't have an authorization code then get one
             $authUrl = $provider->getAuthorizationUrl([
