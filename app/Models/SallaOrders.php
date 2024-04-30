@@ -11,7 +11,7 @@ class SallaOrders extends Model
 
     public $fillable = [
         'order_id' , 
-        'alla_order_id', 
+        'salla_order_id', 
         'shipping_number',  
         'tracking_number', 
         'merchant' , 
