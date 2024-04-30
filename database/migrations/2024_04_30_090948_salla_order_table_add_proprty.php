@@ -13,7 +13,7 @@ class SallaOrderTableAddProprty extends Migration
      */
     public function up()
     {
-        Schema::create('salla_orders', function (Blueprint $table) {
+        Schema::table('salla_orders', function (Blueprint $table) {
             $table->unsignedBigInteger('order_id')->nullable();
             $table->foreign('order_id')->references('id')->on('orders');
             $table->string("shipping_number")->nullable();
