@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class SallaOrders extends Model
 {
     use HasFactory;
+
+    public $fillable = [
+        'order_id' , 
+        'alla_order_id', 
+        'shipping_number',  
+        'tracking_number', 
+        'merchant' , 
+    ];
 }
