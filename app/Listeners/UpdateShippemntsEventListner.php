@@ -27,6 +27,7 @@ class UpdateShippemntsEventListner
      */
     public function handle($event)
     {
+        info("Info From After No Listener");
 
         $headers = [
             'Content-Type' => 'application/json', 
@@ -48,6 +49,8 @@ class UpdateShippemntsEventListner
             ->withBody(json_encode($body), 'application/json')  
             ->put("https://api.salla.dev/admin/v2/shipments/{$shipment_id}");
 
-        dd($response->object());
+        info('-----------request body ---------------');
+        info($response->object());
+        
     }
 }
