@@ -131,7 +131,7 @@ class ShipmentsController extends Controller
        
         $html = view('orders.invoice', ['order' => $order])->render();
        
-        dd($html);
+        // dd($html);
         $filename = 'invoices/' . 'invoices' . date('_y_m_d_h_i_s') . '.pdf';
         // print Invocie
         Browsershot::html($html)->noSandbox()
