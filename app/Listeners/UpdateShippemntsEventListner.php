@@ -28,6 +28,7 @@ class UpdateShippemntsEventListner
     public function handle($event)
     {
 
+        dd($event);
         $headers = [
             'Content-Type' => 'application/json'
          ];
