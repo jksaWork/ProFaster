@@ -14,7 +14,7 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
-    protected $except = ['webhook', 'webhook2'];
+   
     
     protected $middleware = [
         // \App\Http\Middleware\TrustHosts::class,
