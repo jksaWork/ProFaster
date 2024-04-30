@@ -36,7 +36,6 @@ class ShipmentsController extends Controller
                 $ship_to =  $shipments['ship_to'];
                 $weight = $data['total_weight'];
 
-                dd($data, $shipments, $ship_from, $ship_to , $weight);
 
                 $validatedData = [
                     'service_id' => 1,
