@@ -46,7 +46,7 @@ class UpdateShippemntsEventListner
          
         $response = Http::withHeaders($headers)
             ->withBody(json_encode($body), 'application/json')  
-            ->post("https://api.salla.dev/admin/v2/shipments/{$shipment_id}");
+            ->put("https://api.salla.dev/admin/v2/shipments/{$shipment_id}");
 
         dd($response->object());
     }
