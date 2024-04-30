@@ -27,7 +27,7 @@
         "setasign/fpdf": "^1.8",
         "setasign/fpdi": "^2.6",
         "simplesoftwareio/simple-qrcode": "^4.2",
-        "spatie/browsershot": "^3.57",
+        "spatie/browsershot": "^3.61",
         "spatie/laravel-permission": "^4.3",
         "stillatmylinux/laravel-api-key": "dev-master",
         "symfony/css-selector": "^7.0",
