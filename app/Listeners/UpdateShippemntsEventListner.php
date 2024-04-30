@@ -50,7 +50,7 @@ class UpdateShippemntsEventListner
             ->put("https://api.salla.dev/admin/v2/shipments/{$shipment_id}");
 
         info('-----------request body ---------------');
-        info($response->object());
+        info($response->body());
         
     }
 }
