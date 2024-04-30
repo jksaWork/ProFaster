@@ -33,7 +33,7 @@ class UpdateShippemntsEventListner
             'Authorization' => 'Bearer ' . $event->sallaMerchant->access_token,
          ];
          $body = [
-            "order_id" =>  $event->sallaOrder->order_id,
+            "order_id" =>  $event->sallaOrder->salla_order_id,
             "tracking_link"=> "https://api.shipengine.com/v1/labels/498498496/track",
             "shipment_number"=> $event->sallaOrder->shipment_number,
             "tracking_number"=>  $event->sallaOrder->tracking_number,
