@@ -21,7 +21,7 @@ class UpdateShippemntsEvent
      *
      * @return void
      */
-    public function __construct(private Order $order , private SallaOrders $sallaOrders)
+    public function __construct(public Order $order , public SallaOrders $sallaOrder)
     {
         
     }
