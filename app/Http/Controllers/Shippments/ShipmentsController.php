@@ -16,7 +16,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\ImageManagerStatic as Image;
-
+use Spatie\Browsershot\Browsershot;
 
 class ShipmentsController extends Controller
 {
@@ -124,5 +124,25 @@ class ShipmentsController extends Controller
                 ]);
             }
         }
+    }
+
+    public function test(){
+        $order = Order::find(1);
+       
+        $html = view('orders.invoice', ['order' => $order])->render();
+       
+        dd($html);
+        $filename = 'invoices/' . 'invoices' . date('_y_m_d_h_i_s') . '.pdf';
+        // print Invocie
+        Browsershot::html($html)->noSandbox()
+            ->timeout(20)
+            // ->setNodeBinary('/usr/bin/node')
+            // ->setNpmBinary('/usr/bin/npm')
+            // ->setChromePath('/var/www/html/Salla_Notify/node_modules/puppeteer/chrome/linux-1045629/chrome-linux/chrome')
+            ->addChromiumArguments([
+                'no-sandbox',
+                'disable-setuid-sandbox'
+            ])
+            ->save($filename);
     }
 }

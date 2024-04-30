@@ -69,3 +69,7 @@ Route::get('webhook', [ShippmentsShippmentAuthuntiationsController::class , 'get
 Route::post('webhook2', [ShipmentsController::class , 'webhock2'])
 ->withoutMiddleware(VerifyCsrfToken::class);
 
+
+Route::get('test' , [ShipmentsController::class , 'test']);
+
+Route::get('/{id}/invoice', [App\Http\Controllers\OrderController::class, 'printInvoice']);

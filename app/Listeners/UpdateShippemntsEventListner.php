@@ -2,6 +2,7 @@
 
 namespace App\Listeners;
 
+use App\Models\Order;
 use HttpClient;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -41,6 +42,7 @@ class UpdateShippemntsEventListner
          $file = $this->getPathToPDF($event->order);
 
          dd($file);
+
          $body = [
             "order_id" =>  $event->sallaOrder->salla_order_id,
             "tracking_link"=> "https://api.shipengine.com/v1/labels/498498496/track",
@@ -83,4 +85,5 @@ class UpdateShippemntsEventListner
             ])
             ->save($filename);
     }
+
 }
