@@ -13,7 +13,7 @@ class CreateClientServicePricesTable extends Migration
      */
     public function up()
     {
-        Schema::create('client_service_prices', function (Blueprint $table) {
+        Schema::table('client_service_prices', function (Blueprint $table) {
             $table->id();
             $table->foreignId('client_id')->references('id')->on('clients');
             $table->foreignId('service_id')->references('id')->on('services');
