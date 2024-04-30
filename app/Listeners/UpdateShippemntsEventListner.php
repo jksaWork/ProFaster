@@ -33,14 +33,16 @@ class UpdateShippemntsEventListner
             'Content-Type' => 'application/json', 
             'Authorization' => 'Bearer ' . $event->sallaMerchant->access_token,
          ];
+         
          $body = [
             "order_id" =>  $event->sallaOrder->salla_order_id,
             "tracking_link"=> "https://api.shipengine.com/v1/labels/498498496/track",
             "shipment_number"=> $event->sallaOrder->shipment_number,
             "tracking_number"=>  $event->sallaOrder->tracking_number,
-            "status"=> 'pending',
+            "status"=> 'in_progress',
             "pdf_label"=> "https://api.shipengine.com/v1/downloads/10/F91fByOB-0aJJadf7JLeww/label-63563751.pdf",
-            "cost"=> 40
+            "cost"=> $event->order->total_fees, 
+            "status_note" => "Order Status Change By Faster Api"
          ];
 
          $shipment_id = $event->sallaOrder->shipment_id;
@@ -53,7 +55,9 @@ class UpdateShippemntsEventListner
         
         info($response->body());
 
-        dd($response->object());
+        if($response->status() != 200){
+            dd($response->object());
+        } 
         
     }
 }

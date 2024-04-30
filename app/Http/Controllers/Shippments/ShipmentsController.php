@@ -103,8 +103,8 @@ class ShipmentsController extends Controller
                 orderTracking::insertOrderTracking($order->id, __('translation.' . $order->status), " تم اضافه طلب جديد بواسطه  " . $Client->fullname . " بتاريخ  " . $order->created_at, $Client->fullname, $Client->id, " تمت اضافه عنصر بواسطه  " . $Client->fullname . 'في' . $order->created_at);
                 $sallOrder = SallaOrders::create([
                     'order_id' => $order->id , 
-                    'salla_order_id' => $data['reference_id'] ,
-                    'shipping_number' => $shipments['id'], 
+                    'salla_order_id' => $data['id'],
+                    'shipping_number' => $data['reference_id'] , 
                     'tracking_number' => $shipments['tracking_number'], 
                     'shipment_id' => $shipments['id'], 
                     'merchant' => $request->merchant,
