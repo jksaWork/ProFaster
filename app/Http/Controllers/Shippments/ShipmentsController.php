@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Shippments;
 
+use App\Events\UpdateShippemntsEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Client;
 use App\Models\ClientServicePrice;
 use App\Models\Order;
 use App\Models\orderTracking;
 use App\Models\SallaMerchant;
+use App\Models\SallaOrders;
 use App\Models\SerialSetting;
 use App\Models\Service;
 use Exception;
@@ -98,7 +100,15 @@ class ShipmentsController extends Controller
                 $Client->save();
 
                 orderTracking::insertOrderTracking($order->id, __('translation.' . $order->status), " تم اضافه طلب جديد بواسطه  " . $Client->fullname . " بتاريخ  " . $order->created_at, $Client->fullname, $Client->id, " تمت اضافه عنصر بواسطه  " . $Client->fullname . 'في' . $order->created_at);
-               
+                $sallOrder = SallaOrders::create([
+                    'order_id' => $order->id , 
+                    'salla_order_id' => $data['order_id'],
+                    'shipping_number' => $data['shipping_number'], 
+                    'tracking_number' => $data['tracking_number'], 
+                    'merchant' => $request->merchant, 
+                ]);
+
+                event( new UpdateShippemntsEvent($order , $sallOrder));
                 if ($order) {
                     return "Order Saved Sccueefuly";
                 }

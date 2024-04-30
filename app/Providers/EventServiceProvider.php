@@ -4,8 +4,10 @@ namespace App\Providers;
 
 use App\Events\SendNotifcationWithFireBase;
 use App\Events\BordcastToAllRepresetitve;
+use App\Events\UpdateShippemntsEvent;
 use App\Listeners\SendNotifcationWithFireBaseListner;
 use App\Listeners\ListenrBordcastToAllRepresetitve;
+use App\Listeners\UpdateShippemntsEventListner;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -27,6 +29,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         BordcastToAllRepresetitve::class => [
             ListenrBordcastToAllRepresetitve::class ,
+        ], 
+        UpdateShippemntsEvent::class => [
+            UpdateShippemntsEventListner::class, 
         ]
     ];
 
