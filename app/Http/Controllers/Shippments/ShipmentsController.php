@@ -29,7 +29,7 @@ class ShipmentsController extends Controller
             try {
                 
                 $data = $request['data'];
-                $shipments = $data['shipments'];
+                $shipments = $data['shipments'][0];
 
                 dd($data, $shipments);
 
