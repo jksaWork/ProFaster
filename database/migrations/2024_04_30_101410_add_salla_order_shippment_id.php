@@ -14,7 +14,7 @@ class AddSallaOrderId extends Migration
     public function up()
     {
         Schema::table('salla_orders', function (Blueprint $table) {
-            $table->string('salla_order_id')->nullable();
+            $table->string('shippment_id')->nullable();
         });
     }
 

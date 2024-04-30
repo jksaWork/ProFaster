@@ -42,10 +42,11 @@ class UpdateShippemntsEventListner
             "cost"=> 40
          ];
 
+         $shipping_id = $event->sallaOrder->shipping_id;
          
         $response = Http::withHeaders($headers)
             ->withBody(json_encode($body), 'application/json')  
-            ->post('https://api.salla.dev/admin/v2/shipments/');
+            ->put('https://api.salla.dev/admin/v2/shipments/' . $shipping_id);
 
         dd($response->object());
     }
