@@ -29,9 +29,12 @@ class ShipmentsController extends Controller
             try {
                 
                 $data = $request['data'];
+                $shipments = $data['shipments'];
+
+                dd($data, $shipments);
+
                 $ship_from = $data['shipments']['ship_from'];
                 $ship_to = $data['shipments']['ship_to'];
-                $shipments = $data['shipments'];
                 $weight = $data['total_weight'];
                 
 
