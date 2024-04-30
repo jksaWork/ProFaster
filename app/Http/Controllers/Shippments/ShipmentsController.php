@@ -104,7 +104,7 @@ class ShipmentsController extends Controller
                 $sallOrder = SallaOrders::create([
                     'order_id' => $order->id , 
                     'salla_order_id' => $data['id'],
-                    'shipping_number' => "". $data['reference_id'] . "" , 
+                    'shipping_number' => $order->id, 
                     'tracking_number' => $shipments['tracking_number'], 
                     'shipment_id' => $shipments['id'], 
                     'merchant' => $request->merchant,
