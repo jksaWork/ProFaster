@@ -29,13 +29,11 @@ class ShipmentsController extends Controller
             try {
                 
                 $data = $request['data'];
-                $ship_from = $data['ship_from'];
-                $ship_to = $data['ship_to'];
+                $ship_from = $data['shipments']['ship_from'];
+                $ship_to = $data['shipments']['ship_to'];
+                $shipments = $data['shipments'];
+                $weight = $data['total_weight'];
                 
-                $weight = null;
-                if($data['total_weight']['value']){
-                    $weight = $data['total_weight']['value'] . " " . $data['total_weight']['units'];
-                }
 
                 $validatedData = [
                     'service_id' => 1,
@@ -51,13 +49,13 @@ class ShipmentsController extends Controller
                     'receiver_sub_area_id' => 1,
                     'receiver_address' => $ship_to['address_line'],
 
-                    'payment_method' => $data['payment_method']  != 'cod'?  "on_receiving":"balance",
-                    'cod_method' => $data['payment_method']  == 'cod'?  "cash":"netweork", 
-                    'order_fees' => $data['total']['amount'],
+                    'payment_method' => $shipments['payment_method']  != 'cod'?  "on_receiving":"balance",
+                    'cod_method' => $shipments['payment_method']  == 'cod'?  "cash":"netweork", 
+                    'order_fees' => $shipments['total']['amount'],
                     'note' => 'nullable',
-                    'number_of_pieces' => count($data['packages']),
+                    'number_of_pieces' => count($shipments['packages']),
                     'order_weight' => $weight,
-                    "status" => $request->status, 
+                    "status" => 'pending', 
                     'image' => "hello world", 
                 ];
                 
@@ -107,7 +105,9 @@ class ShipmentsController extends Controller
                     'shipping_number' => $data['shipping_number'], 
                     'tracking_number' => $data['tracking_number'], 
                     'shipment_id' => $data['id'], 
-                    'merchant' => $request->merchant, 
+                    'merchant' => $request->merchant,
+                    'salla_order_status' => $data['status']['slug'],
+                    'salla_shipment_status' => $shipments['status'] 
                 ]);
 
                 event( new UpdateShippemntsEvent($order , $sallOrder, $sallaMerchant));
