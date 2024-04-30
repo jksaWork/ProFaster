@@ -66,6 +66,6 @@ Route::get('send-email', [SendEmailController::class, 'index']);
 |--------------------------------------------------------------------------*/
 
 Route::get('webhook', [ShippmentsShippmentAuthuntiationsController::class , 'getTokenWithCodeAndUpdateClientFilleds']);
-Route::get('webhook2', [ShipmentsController::class , 'webhock2'])
+Route::post('webhook2', [ShipmentsController::class , 'webhock2'])
 ->withoutMiddleware(VerifyCsrfToken::class);
 
