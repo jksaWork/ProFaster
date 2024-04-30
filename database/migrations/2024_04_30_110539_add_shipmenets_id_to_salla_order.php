@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddSallaOrderId extends Migration
+class AddShipmenetsIdToSallaOrder extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddSallaOrderId extends Migration
     public function up()
     {
         Schema::table('salla_orders', function (Blueprint $table) {
-            $table->string('shippment_id')->nullable();
+            $table->string('shipment_id')->nullable();
         });
     }
 
@@ -25,6 +25,8 @@ class AddSallaOrderId extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('salla_order', function (Blueprint $table) {
+            //
+        });
     }
 }

@@ -15,5 +15,6 @@ class SallaOrders extends Model
         'shipping_number',  
         'tracking_number', 
         'merchant' , 
+        'shipment_id', 
     ];
 }

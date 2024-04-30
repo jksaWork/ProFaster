@@ -106,7 +106,7 @@ class ShipmentsController extends Controller
                     'salla_order_id' => $data['order_id'],
                     'shipping_number' => $data['shipping_number'], 
                     'tracking_number' => $data['tracking_number'], 
-                    'shipping_id' => $data['id'], 
+                    'shipment_id' => $data['id'], 
                     'merchant' => $request->merchant, 
                 ]);
 
