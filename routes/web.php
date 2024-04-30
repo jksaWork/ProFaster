@@ -53,6 +53,7 @@ use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\SendEmailController;
 use App\Http\Controllers\Shippments\ShipmentsController;
 use App\Http\Controllers\Shippments\ShippmentAuthuntiationsController as ShippmentsShippmentAuthuntiationsController;
+use App\Http\Middleware\VerifyCsrfToken;
 
 Route::get('send-email', [SendEmailController::class, 'index']);
 // Route::get('/', function () {
@@ -65,5 +66,6 @@ Route::get('send-email', [SendEmailController::class, 'index']);
 |--------------------------------------------------------------------------*/
 
 Route::get('webhook', [ShippmentsShippmentAuthuntiationsController::class , 'getTokenWithCodeAndUpdateClientFilleds']);
-Route::get('webhook2', [ShipmentsController::class , 'webhock2']);
+Route::get('webhook2', [ShipmentsController::class , 'webhock2'])
+->withoutMiddleware(VerifyCsrfToken::class);
 
