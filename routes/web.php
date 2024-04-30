@@ -64,6 +64,6 @@ Route::get('send-email', [SendEmailController::class, 'index']);
 | change language route
 |--------------------------------------------------------------------------*/
 
-Route::get('webhock', [ShippmentsShippmentAuthuntiationsController::class , 'getTokenWithCodeAndUpdateClientFilleds']);
-Route::get('webhock2', [ShipmentsController::class , 'webhock2']);
+Route::get('webhook', [ShippmentsShippmentAuthuntiationsController::class , 'getTokenWithCodeAndUpdateClientFilleds']);
+Route::get('webhook2', [ShipmentsController::class , 'webhock2']);
 
