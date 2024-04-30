@@ -25,7 +25,7 @@ class ShipmentsController extends Controller
     {
         info('--------------- new Shippment Request Was Comming ----------------------');
         info($request);
-        if($request->event == 'shipment.creating'){
+        if($request->event == 'order.shipment.creating'){
             try {
                 
                 $data = $request['data'];
