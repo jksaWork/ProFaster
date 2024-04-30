@@ -37,7 +37,7 @@ class UpdateShippemntsEventListner
             "tracking_link"=> "https://api.shipengine.com/v1/labels/498498496/track",
             "shipment_number"=> $event->sallaOrder->shipment_number,
             "tracking_number"=>  $event->sallaOrder->tracking_number,
-            "status"=> $event->order->status,
+            "status"=> 'pending',
             "pdf_label"=> "https://api.shipengine.com/v1/downloads/10/F91fByOB-0aJJadf7JLeww/label-63563751.pdf",
             "cost"=> 40
          ];
