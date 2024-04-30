@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\Models\Order;
+use App\Models\SallaMerchant;
 use App\Models\SallaOrders;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
@@ -21,7 +22,7 @@ class UpdateShippemntsEvent
      *
      * @return void
      */
-    public function __construct(public Order $order , public SallaOrders $sallaOrder)
+    public function __construct(public Order $order , public SallaOrders $sallaOrder , public SallaMerchant $sallaMerchant)
     {
         
     }

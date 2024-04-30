@@ -62,8 +62,9 @@ class ShipmentsController extends Controller
                 ];
                 
 
-                $Client = SallaMerchant::with('Client')->where('merchant_id', $request->merchant)->first()->Client;  
-              
+               $sallaMerchant = SallaMerchant::with('Client')->where('merchant_id', $request->merchant)->first();  
+               
+               $Client = $sallaMerchant->Client;
                 $status = $Client->update([
                     "in_accounts_order" => 1,
                 ]);
@@ -108,7 +109,7 @@ class ShipmentsController extends Controller
                     'merchant' => $request->merchant, 
                 ]);
 
-                event( new UpdateShippemntsEvent($order , $sallOrder));
+                event( new UpdateShippemntsEvent($order , $sallOrder, $sallaMerchant));
                 if ($order) {
                     return "Order Saved Sccueefuly";
                 }

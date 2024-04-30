@@ -29,7 +29,8 @@ class UpdateShippemntsEventListner
     {
 
         $headers = [
-            'Content-Type' => 'application/json'
+            'Content-Type' => 'application/json', 
+            'Authorization' => 'Bearer ' . $event->sallaMerchant->access_token,
          ];
          $body = [
             "order_id" =>  $event->sallaOrder->order_id,
