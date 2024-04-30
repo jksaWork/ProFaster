@@ -31,12 +31,12 @@ class ShipmentsController extends Controller
                 $data = $request['data'];
                 $shipments = $data['shipments'][0];
 
-                dd($data, $shipments);
 
-                $ship_from = $data['shipments']['ship_from'];
-                $ship_to = $data['shipments']['ship_to'];
+                $ship_from = $shipments['ship_from'];
+                $ship_to =  $shipments['ship_to'];
                 $weight = $data['total_weight'];
-                
+
+                dd($data, $shipments, $ship_from, $ship_to , $weight);
 
                 $validatedData = [
                     'service_id' => 1,
