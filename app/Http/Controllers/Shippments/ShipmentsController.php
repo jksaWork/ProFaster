@@ -139,7 +139,7 @@ class ShipmentsController extends Controller
     $html = view('orders.invoices', compact('Orders'))->toArabicHTML();
 
     // Generate PDF from HTML content
-    $pdf = PDF::loadHTML($html)->output();
+    $pdf = PDF::loadHTML($html);
     // Save the PDF to a file
     $pdfFilePath = public_path('pdfs/invoices.pdf');
     $pdf->save($pdfFilePath);
