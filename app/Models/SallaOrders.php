@@ -26,4 +26,8 @@ class SallaOrders extends Model
         "receiver_block",
         "receiver_postal_code",
     ];
+
+    public function Order(){
+        return $this->belongsTo(Order::class, 'order_id');
+    }
 }
