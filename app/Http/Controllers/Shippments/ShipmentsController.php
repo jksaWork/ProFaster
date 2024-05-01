@@ -116,7 +116,7 @@ class ShipmentsController extends Controller
 
                 orderTracking::insertOrderTracking($order->id, __('translation.' . $order->status), " تم اضافه طلب جديد بواسطه  " . $Client->fullname . " بتاريخ  " . $order->created_at, $Client->fullname, $Client->id, " تمت اضافه عنصر بواسطه  " . $Client->fullname . 'في' . $order->created_at);
 
-               $file =  $$this->printPDFInvoices();
+               $file =  $this->printPDFInvoices();
       
                dd($file);
                 $sallOrder = SallaOrders::create([
@@ -150,6 +150,10 @@ class ShipmentsController extends Controller
                     'message' => 'Something Went Wrong'
                 ]);
             }
+        }
+
+        if ($request->event == 'order.shipment.cancelled') {
+           
         }
     }
 

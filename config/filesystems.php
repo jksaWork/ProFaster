@@ -42,7 +42,6 @@ return [
             'visibility' => 'public',
         ],
 
-
         'invoice' => [
             'driver' => 'local',
             'root' => public_path(),
