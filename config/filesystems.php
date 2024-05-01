@@ -41,6 +41,14 @@ return [
             'url' => env('APP_URL') . '/uploads',
             'visibility' => 'public',
         ],
+
+
+        'invoice' => [
+            'driver' => 'local',
+            'root' => public_path(),
+            'url' => env('APP_URL') ,
+            'visibility' => 'public',
+        ],
         
         's3' => [
             'driver' => 's3',

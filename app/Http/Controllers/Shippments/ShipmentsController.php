@@ -169,7 +169,7 @@ class ShipmentsController extends Controller
         $pdf->save($pdfFilePath);
 
         // Check if the file was saved successfully
-        $isExist = Storage::disk('public')->exists($pdfFilePath);
+        $isExist = Storage::disk('invoice')->exists($pdfFilePath);
         dd($isExist);
         if (File::exists($pdfFilePath)) {
             return response()->json(['success' => true, 'file_path' => $pdfFilePath]);
