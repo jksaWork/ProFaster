@@ -3,7 +3,7 @@
 namespace App\Listeners;
 
 use App\Models\Order;
-use Barryvdh\DomPDF\PDF;
+use PDF;
 use HttpClient;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
