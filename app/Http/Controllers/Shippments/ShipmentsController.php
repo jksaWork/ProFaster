@@ -119,7 +119,7 @@ class ShipmentsController extends Controller
                 $url = "https://salla.proofast.com/printPDF-invoices/". $order->id;
 
                 $response = Http::get($url);
-                dd($response->object()->file_path); 
+                dd($response->object()); 
                 
                 $sallOrder = SallaOrders::create([
                     'order_id' => $order->id , 
