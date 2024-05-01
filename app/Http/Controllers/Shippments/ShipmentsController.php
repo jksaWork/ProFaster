@@ -135,7 +135,7 @@ class ShipmentsController extends Controller
     $Orders = Order::find(1);
 
     // Load the blade file content into a variable
-    $html = FacadesView::make('orders.invoices', compact('Orders'))->toArabicHTML();
+    $html = view('orders.invoices', compact('Orders'))->toArabicHTML();
 
     // Generate PDF from HTML content
     $pdf = DomPDFPDF::loadHTML($html);
