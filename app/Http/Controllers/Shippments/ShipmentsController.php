@@ -183,7 +183,7 @@ class ShipmentsController extends Controller
         // Generate PDF from HTML content
         $pdf = PDF::loadHTML($html);
         // Save the PDF to a file
-        $filename = 'pdfs/invoices_' .date('y_m_d_h_i_s'). '_.pdf';
+        $filename = 'pdfs/invoices_' .rand(100000 , 9999999) .date('d_h_i_s').'_' .rand(100000 , 9999999) .'_.pdf';
 
         $pdfFilePath = public_path($filename);
         $pdf->save($pdfFilePath);
