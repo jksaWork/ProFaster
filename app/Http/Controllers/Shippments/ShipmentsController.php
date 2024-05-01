@@ -35,10 +35,12 @@ class ShipmentsController extends Controller
                 
                 $data = $request['data'];
 
+                $service_id = 2;
+
                 if(isset($data['type']) && $data['type'] == 'return')
-                    $service_id = 1;
+                    $service_id = 4;
                 else
-                    $service_id = 5;
+                    $service_id = 2;
 
                 $shipments = $data['shipments'][0];
 
