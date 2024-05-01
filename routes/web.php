@@ -54,6 +54,7 @@ use App\Http\Controllers\SendEmailController;
 use App\Http\Controllers\Shippments\ShipmentsController;
 use App\Http\Controllers\Shippments\ShippmentAuthuntiationsController as ShippmentsShippmentAuthuntiationsController;
 use App\Http\Middleware\VerifyCsrfToken;
+use App\Models\Order;
 
 Route::get('send-email', [SendEmailController::class, 'index']);
 // Route::get('/', function () {
@@ -77,3 +78,8 @@ Route::get('test' , [ShipmentsController::class , 'test']);
 
 
 Route::get('printPDF-invoices/{orderId}', [ShipmentsController::class, 'printPDFInvoices'])->name('printPDF.invoices');
+
+Route::get('invoices/{id}', 
+fn($id) => view('orders.invoicesPDF' , [
+    'Orders' => [Order::find($id)]
+]));
