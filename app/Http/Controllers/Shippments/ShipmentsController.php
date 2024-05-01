@@ -178,7 +178,7 @@ class ShipmentsController extends Controller
         $Orders = [Order::find($orderId)];
 
         // Load the blade file content into a variable
-        $html = view('orders.invoices', compact('Orders'))->toArabicHTML();
+        $html = view('orders.invoicesPDF', compact('Orders'))->toArabicHTML();
 
         // Generate PDF from HTML content
         $pdf = PDF::loadHTML($html);
