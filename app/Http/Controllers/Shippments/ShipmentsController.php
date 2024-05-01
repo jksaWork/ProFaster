@@ -17,6 +17,7 @@ use Facade\FlareClient\Stacktrace\File;
 use Faker\Core\File as CoreFile;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View as FacadesView;
 use Illuminate\View\View as ViewView;
@@ -115,10 +116,11 @@ class ShipmentsController extends Controller
 
                 orderTracking::insertOrderTracking($order->id, __('translation.' . $order->status), " تم اضافه طلب جديد بواسطه  " . $Client->fullname . " بتاريخ  " . $order->created_at, $Client->fullname, $Client->id, " تمت اضافه عنصر بواسطه  " . $Client->fullname . 'في' . $order->created_at);
 
-                // dd("Hi");
+                $url = "https://salla.proofast.com/printPDF-invoices/". $order->id;
 
-            
-               
+                $response = Http::get($url);
+                dd($response->object()->file_path); 
+                
                 $sallOrder = SallaOrders::create([
                     'order_id' => $order->id , 
                     'salla_order_id' => $data['id'],
