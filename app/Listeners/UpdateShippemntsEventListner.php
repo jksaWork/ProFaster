@@ -76,7 +76,7 @@ class UpdateShippemntsEventListner
 
         // Load the blade file content into a variable
         $html = view('orders.invoices', compact('Orders'))->toArabicHTML();
-
+        dd($html);
         // Generate PDF from HTML content
         $pdf = PDF::loadHTML($html);
         // Save the PDF to a file
