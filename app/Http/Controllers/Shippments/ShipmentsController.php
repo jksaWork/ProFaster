@@ -34,6 +34,12 @@ class ShipmentsController extends Controller
             try {
                 
                 $data = $request['data'];
+
+                if(isset($data['type']) && $data['type'] == 'return')
+                    $service_id = 1;
+                else
+                    $service_id = 5;
+
                 $shipments = $data['shipments'][0];
 
 
@@ -43,7 +49,7 @@ class ShipmentsController extends Controller
 
 
                 $validatedData = [
-                    'service_id' => 1,
+                    'service_id' => $service_id,
                     'sender_name' =>$ship_from['name'] ,
                     'sender_phone' => $ship_from['phone'],
                     'sender_address' => $ship_from['address_line'],
@@ -109,9 +115,19 @@ class ShipmentsController extends Controller
 
                 // dd("Hi");
 
-                $file = $this->printPDFInvoices($order->id);
-               
-                dd($file);
+                $Orders = [$order];
+        // Load the blade file content into a variable
+                $html = view('orders.invoices', compact('Orders'))->toArabicHTML();
+
+                // Generate PDF from HTML content
+                $pdf = PDF::loadHTML($html);
+                // Save the PDF to a file
+                $filename = 'pdfs/invoices_' .date('y_m_d_h_i_s'). ' _.pdf';
+
+                $pdfFilePath = public_path($filename);
+                $pdf->save($pdfFilePath);
+                
+                dd($pdfFilePath);
                
                 $sallOrder = SallaOrders::create([
                     'order_id' => $order->id , 
