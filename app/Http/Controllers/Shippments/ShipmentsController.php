@@ -133,7 +133,7 @@ class ShipmentsController extends Controller
 
     public function printPDFInvoices(Request $request)
 {
-    $Orders = Order::find(1);
+    $Orders = [Order::find(1)];
 
     // Load the blade file content into a variable
     $html = view('orders.invoices', compact('Orders'))->toArabicHTML();
