@@ -140,7 +140,6 @@ class ShipmentsController extends Controller
 
     // Generate PDF from HTML content
     $pdf = PDF::loadHTML($html);
-    $pdf->set_option('defaultFont', 'Arial');
     // Save the PDF to a file
     $pdfFilePath = public_path('pdfs/invoices.pdf');
     $pdf->save($pdfFilePath);
