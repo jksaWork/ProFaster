@@ -119,7 +119,7 @@ class ShipmentsController extends Controller
                 $url = "https://salla.proofast.com/printPDF-invoices/". $order->id;
 
                 $response = Http::get($url);
-                dd($response->object()); 
+                dd($response->object(), $url, $response->status()); 
                 
                 $sallOrder = SallaOrders::create([
                     'order_id' => $order->id , 
@@ -165,7 +165,7 @@ class ShipmentsController extends Controller
         // Generate PDF from HTML content
         $pdf = PDF::loadHTML($html);
         // Save the PDF to a file
-        $filename = 'pdfs/invoices_' .date('y_m_d_h_i_s'). ' _.pdf';
+        $filename = 'pdfs/invoices_' .date('y_m_d_h_i_s'). '_.pdf';
 
         $pdfFilePath = public_path($filename);
         $pdf->save($pdfFilePath);
