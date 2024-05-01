@@ -132,26 +132,22 @@ class ShipmentsController extends Controller
     }
 
     public function printPDFInvoices(Request $request)
-{
-    $Orders = [Order::find(1)];
+    {
+        $Orders = [Order::find(1)];
 
-    // Load the blade file content into a variable
-    $html = view('orders.invoices', compact('Orders'))->toArabicHTML();
+        // Load the blade file content into a variable
+        $html = view('orders.invoices', compact('Orders'))->toArabicHTML();
 
-    // Generate PDF from HTML content
-    $pdf = PDF::loadHTML($html);
-    // Save the PDF to a file
-    $pdfFilePath = public_path('pdfs/invoices.pdf');
-    $pdf->save($pdfFilePath);
+        // Generate PDF from HTML content
+        $pdf = PDF::loadHTML($html);
+        // Save the PDF to a file
+        $filename = 'pdfs/invoices_' .date('y_m_d_h_i_s'). ' _.pdf';
 
-    $hasPDF = Storage::disk('local')->exists($pdfFilePath);
-    // Check if the file was saved successfully
-    if ($hasPDF) {
-        return response()->json(['success' => true, 'file_path' => $pdfFilePath]);
-    } else {
-        return response()->json(['success' => false, 'message' => 'Failed to save PDF file.']);
+        $pdfFilePath = public_path($filename);
+        $pdf->save($pdfFilePath);
+
+        return $filename;
     }
-}
 
     public function test(){
             $html = view('arabic')->toArabicHTML();
