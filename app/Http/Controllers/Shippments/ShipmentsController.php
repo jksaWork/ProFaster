@@ -116,11 +116,9 @@ class ShipmentsController extends Controller
 
                 orderTracking::insertOrderTracking($order->id, __('translation.' . $order->status), " تم اضافه طلب جديد بواسطه  " . $Client->fullname . " بتاريخ  " . $order->created_at, $Client->fullname, $Client->id, " تمت اضافه عنصر بواسطه  " . $Client->fullname . 'في' . $order->created_at);
 
-                $url = "https://salla.proofast.com/printPDF-invoices/". $order->id;
-
-                $response = Http::get($url);
-                dd($response->object(), $url, $response->status()); 
-                
+               $file =  $$this->printPDFInvoices();
+      
+               dd($file);
                 $sallOrder = SallaOrders::create([
                     'order_id' => $order->id , 
                     'salla_order_id' => $data['id'],
@@ -169,8 +167,9 @@ class ShipmentsController extends Controller
 
         $pdfFilePath = public_path($filename);
         $pdf->save($pdfFilePath);
-
-        return response()->json(['success' => true, 'file_path' => asset($filename)]);
+        
+        return asset($filename);
+        // return response()->json(['success' => true, 'file_path' => asset($filename)]);
         
     }
 
