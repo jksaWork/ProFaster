@@ -16,5 +16,14 @@ class SallaOrders extends Model
         'tracking_number', 
         'merchant' , 
         'shipment_id', 
+        'policy_file',
+        // Reserver Data
+        "receiver_country", 
+        "receiver_country_code", 
+        "receiver_city", 
+        "receiver_address_line", 
+        "receiver_street_number",
+        "receiver_block",
+        "receiver_postal_code",
     ];
 }

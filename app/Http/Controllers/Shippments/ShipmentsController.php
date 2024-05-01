@@ -106,6 +106,9 @@ class ShipmentsController extends Controller
                 $Client->save();
 
                 orderTracking::insertOrderTracking($order->id, __('translation.' . $order->status), " تم اضافه طلب جديد بواسطه  " . $Client->fullname . " بتاريخ  " . $order->created_at, $Client->fullname, $Client->id, " تمت اضافه عنصر بواسطه  " . $Client->fullname . 'في' . $order->created_at);
+                
+                $file = $this->printPDFInvoices($order->id);
+                dd($file);
                 $sallOrder = SallaOrders::create([
                     'order_id' => $order->id , 
                     'salla_order_id' => $data['id'],
@@ -114,7 +117,16 @@ class ShipmentsController extends Controller
                     'shipment_id' => $shipments['id'], 
                     'merchant' => $request->merchant,
                     'salla_order_status' => $data['status']['slug'],
-                    'salla_shipment_status' => $shipments['status'] 
+                    'salla_shipment_status' => $shipments['status'] ,  
+                    'policy_file' => $file, 
+                    // resever Addional Property
+                    "receiver_country"=> $ship_to['country'],
+                    "receiver_country_code"=> $ship_to['country_code'],
+                    "receiver_city"=> $ship_to['city'],
+                    "receiver_address_line"=> $ship_to['address_line'],
+                    "receiver_street_number"=> $ship_to['street_number'],
+                    "receiver_block"=> $ship_to['block'],
+                    "receiver_postal_code"=> $ship_to['postal_code'],
                 ]);
 
                 event( new UpdateShippemntsEvent($order , $sallOrder, $sallaMerchant));
@@ -131,9 +143,9 @@ class ShipmentsController extends Controller
         }
     }
 
-    public function printPDFInvoices(Request $request)
+    public function printPDFInvoices($orderId)
     {
-        $Orders = [Order::find(1)];
+        $Orders = [Order::find($orderId)];
 
         // Load the blade file content into a variable
         $html = view('orders.invoices', compact('Orders'))->toArabicHTML();
