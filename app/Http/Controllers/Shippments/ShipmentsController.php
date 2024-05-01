@@ -15,8 +15,10 @@ use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Exception;
 use Facade\FlareClient\Stacktrace\File;
 use Faker\Core\File as CoreFile;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\View as FacadesView;
 use Illuminate\View\View as ViewView;
 use PHPUnit\Framework\Constraint\FileExists;
 
@@ -133,7 +135,7 @@ class ShipmentsController extends Controller
     $Orders = Order::find(1);
 
     // Load the blade file content into a variable
-    $html = ViewView::make('orders.invoicesPDF', compact('Orders'))->toArabicHTML();
+    $html = FacadesView::make('orders.invoicesPDF', compact('Orders'))->toArabicHTML();
 
     // Generate PDF from HTML content
     $pdf = DomPDFPDF::loadHTML($html);
