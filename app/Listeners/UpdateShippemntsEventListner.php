@@ -47,7 +47,7 @@ class UpdateShippemntsEventListner
             "shipment_number"=> "$shipment_id",
             "tracking_number"=>  $event->sallaOrder->tracking_number,
             "status"=> 'in_progress',
-            "pdf_label"=> $file,  # "https://api.shipengine.com/v1/downloads/10/F91fByOB-0aJJadf7JLeww/label-63563751.pdf",
+            "pdf_label"=> $event->sallaOrder->policy_file,  # "https://api.shipengine.com/v1/downloads/10/F91fByOB-0aJJadf7JLeww/label-63563751.pdf",
             "cost"=> $event->order->total_fees, 
             "status_note" => "Order Status Change By Faster Api"
          ];

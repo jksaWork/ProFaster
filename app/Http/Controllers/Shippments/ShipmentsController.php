@@ -118,8 +118,8 @@ class ShipmentsController extends Controller
 
                $file =  $this->printPDFInvoices();
       
-               dd($file);
-                $sallOrder = SallaOrders::create([
+
+               $sallOrder = SallaOrders::create([
                     'order_id' => $order->id , 
                     'salla_order_id' => $data['id'],
                     'shipping_number' => $order->id, 
