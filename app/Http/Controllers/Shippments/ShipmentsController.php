@@ -106,9 +106,9 @@ class ShipmentsController extends Controller
                 $Client->save();
 
                 orderTracking::insertOrderTracking($order->id, __('translation.' . $order->status), " تم اضافه طلب جديد بواسطه  " . $Client->fullname . " بتاريخ  " . $order->created_at, $Client->fullname, $Client->id, " تمت اضافه عنصر بواسطه  " . $Client->fullname . 'في' . $order->created_at);
-                
+
+                dd("Hi");
                 $file = $this->printPDFInvoices($order->id);
-                dd($file);
                 $sallOrder = SallaOrders::create([
                     'order_id' => $order->id , 
                     'salla_order_id' => $data['id'],
