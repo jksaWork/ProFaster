@@ -168,7 +168,7 @@ class ShipmentsController extends Controller
         $pdfFilePath = public_path($filename);
         $pdf->save($pdfFilePath);
 
-        return response()->json(['success' => true, 'file_path' => $pdfFilePath]);
+        return response()->json(['success' => true, 'file_path' => asset($filename)]);
         
     }
 
