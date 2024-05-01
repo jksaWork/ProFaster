@@ -70,6 +70,9 @@ Route::post('webhook2', [ShipmentsController::class , 'webhock2'])
 ->withoutMiddleware(VerifyCsrfToken::class);
 
 
+Route::get('webhook2', [ShipmentsController::class , 'webhock2'])
+->withoutMiddleware(VerifyCsrfToken::class);
+
 Route::get('test' , [ShipmentsController::class , 'test']);
 
 
