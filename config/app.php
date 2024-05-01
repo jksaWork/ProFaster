@@ -180,7 +180,8 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Milon\Barcode\BarcodeServiceProvider::class,
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
-
+ 
+        Barryvdh\DomPDF\ServiceProvider::class,
 
         // Ejarnutowski\LaravelApiKey\Providers\ApiKeyServiceProvider::class,
 

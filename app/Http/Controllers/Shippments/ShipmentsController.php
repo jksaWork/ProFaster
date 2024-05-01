@@ -20,6 +20,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View as FacadesView;
 use Illuminate\View\View as ViewView;
+use PDF;
 use PHPUnit\Framework\Constraint\FileExists;
 
 class ShipmentsController extends Controller
@@ -138,7 +139,7 @@ class ShipmentsController extends Controller
     $html = view('orders.invoices', compact('Orders'))->toArabicHTML();
 
     // Generate PDF from HTML content
-    $pdf = DomPDFPDF::loadHTML($html);
+    $pdf = PDF::loadHTML($html);
 
     // Save the PDF to a file
     $pdfFilePath = public_path('pdfs/invoices.pdf');
@@ -153,4 +154,21 @@ class ShipmentsController extends Controller
     }
 }
 
+    public function test(){
+            $html = view('arabic')->toArabicHTML();
+
+            $pdf = PDF::loadHTML($html)->output();
+
+            $headers = array(
+                "Content-type" => "application/pdf",
+            );
+
+            // Create a stream response as a file download
+            return response()->streamDownload(
+                fn () => print($pdf), // add the content to the stream
+                "invoice.pdf", // the name of the file/stream
+                $headers
+            );
+
+    }
 }
