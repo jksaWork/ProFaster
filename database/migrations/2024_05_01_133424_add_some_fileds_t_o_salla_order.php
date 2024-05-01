@@ -21,7 +21,9 @@ class AddSomeFiledsTOSallaOrder extends Migration
             $table->string('receiver_address_line')->nullable();
             $table->string('receiver_street_number')->nullable();
             $table->string('receiver_block')->nullable();
+            $table->string('receiver_city')->nullable();
             $table->string('receiver_postal_code')->nullable();
+            
         });
     
     }

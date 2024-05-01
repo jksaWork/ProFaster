@@ -39,8 +39,6 @@ class UpdateShippemntsEventListner
             'Authorization' => 'Bearer ' . $event->sallaMerchant->access_token,
          ];
          
-         $file = $this->getFileInvoiceName($event->order->id);
-         dd(asset($file));
          $body = [
             "order_id" =>  $event->sallaOrder->salla_order_id,
             "tracking_link"=> "https://api.shipengine.com/v1/labels/498498496/track",
