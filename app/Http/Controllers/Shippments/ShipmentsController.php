@@ -154,12 +154,22 @@ class ShipmentsController extends Controller
 
         if ($request->event == 'order.shipment.cancelled') {
             $data = $request['data'];
+
             $sallOrder =  SallaOrders::where([
                     'salla_order_id' => $data['id'], 
                     'shipment_id' => $data['shipping_number'], 
             ])->first();
+
             $order = $sallOrder->Order;
-            dd($order);
+
+            if($order  && $order->status = 'pending'){
+                $order->status = 'canceled';
+                $order->save();
+                $sallOrder->salla_shipment_status = "Canceled By Sall";
+                $sallOrder->save();
+            }
+
+            return "Order Was Cancaeled";
         }
     }
 
