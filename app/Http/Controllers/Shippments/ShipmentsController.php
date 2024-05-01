@@ -40,7 +40,7 @@ class ShipmentsController extends Controller
                 if(isset($data['type']) && $data['type'] == 'return')
                     $service_id = 4;
                 else
-                    $service_id = 2;
+                    $service_id = 2 ;
 
                 $shipments = $data['shipments'][0];
 
@@ -117,19 +117,7 @@ class ShipmentsController extends Controller
 
                 // dd("Hi");
 
-                $Orders = [$order];
-        // Load the blade file content into a variable
-                $html = view('orders.invoices', compact('Orders'))->toArabicHTML();
-
-                // Generate PDF from HTML content
-                $pdf = PDF::loadHTML($html);
-                // Save the PDF to a file
-                $filename = 'pdfs/invoices_' .date('y_m_d_h_i_s'). ' _.pdf';
-
-                $pdfFilePath = public_path($filename);
-                $pdf->save($pdfFilePath);
-                
-                dd($pdfFilePath);
+            
                
                 $sallOrder = SallaOrders::create([
                     'order_id' => $order->id , 
@@ -180,7 +168,14 @@ class ShipmentsController extends Controller
         $pdfFilePath = public_path($filename);
         $pdf->save($pdfFilePath);
 
-        return $filename;
+        // Check if the file was saved successfully
+        $isExist = Storage::disk('public')->exists($pdfFilePath);
+        dd($isExist);
+        if (File::exists($pdfFilePath)) {
+            return response()->json(['success' => true, 'file_path' => $pdfFilePath]);
+        } else {
+            return response()->json(['success' => false, 'message' => 'Failed to save PDF file.']);
+        }
     }
 
     public function test(){
