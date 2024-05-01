@@ -72,4 +72,5 @@ Route::post('webhook2', [ShipmentsController::class , 'webhock2'])
 
 Route::get('test' , [ShipmentsController::class , 'test']);
 
-Route::get('/{id}/invoice', [App\Http\Controllers\OrderController::class, 'printInvoice']);
+
+Route::post('printPDF-invoices', [ShipmentsController::class, 'printPDFInvoices'])->name('printPDF.invoices');

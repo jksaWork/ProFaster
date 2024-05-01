@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "ab-alselwi/laravel-arabic-html": "^0.2.0",
         "alhoqbani/smsa-webservice": "^0.0.3",
         "davejamesmiller/laravel-breadcrumbs": "5.x",
         "fruitcake/laravel-cors": "^2.0",

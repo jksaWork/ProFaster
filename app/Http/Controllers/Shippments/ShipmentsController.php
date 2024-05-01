@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Shippments;
 
 use App\Events\UpdateShippemntsEvent;
 use App\Http\Controllers\Controller;
-use App\Models\Client;
 use App\Models\ClientServicePrice;
 use App\Models\Order;
 use App\Models\orderTracking;
@@ -12,11 +11,14 @@ use App\Models\SallaMerchant;
 use App\Models\SallaOrders;
 use App\Models\SerialSetting;
 use App\Models\Service;
+use Barryvdh\DomPDF\PDF as DomPDFPDF;
 use Exception;
+use Facade\FlareClient\Stacktrace\File;
+use Faker\Core\File as CoreFile;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Intervention\Image\ImageManagerStatic as Image;
-use Spatie\Browsershot\Browsershot;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View as ViewView;
+use PHPUnit\Framework\Constraint\FileExists;
 
 class ShipmentsController extends Controller
 {
@@ -126,23 +128,27 @@ class ShipmentsController extends Controller
         }
     }
 
-    public function test(){
-        $order = Order::find(1);
-       
-        $html = view('orders.invoice', ['order' => $order])->render();
-       
-        // dd($html);
-        $filename = 'invoices/' . 'invoices' . date('_y_m_d_h_i_s') . '.pdf';
-        // print Invocie
-        Browsershot::html($html)->noSandbox()
-            ->timeout(20)
-            // ->setNodeBinary('/usr/bin/node')
-            // ->setNpmBinary('/usr/bin/npm')
-            // ->setChromePath('/var/www/html/Salla_Notify/node_modules/puppeteer/chrome/linux-1045629/chrome-linux/chrome')
-            ->addChromiumArguments([
-                'no-sandbox',
-                'disable-setuid-sandbox'
-            ])
-            ->save($filename);
+    public function printPDFInvoices(Request $request)
+{
+    $Orders = Order::find(1);
+
+    // Load the blade file content into a variable
+    $html = ViewView::make('orders.invoicesPDF', compact('Orders'))->toArabicHTML();
+
+    // Generate PDF from HTML content
+    $pdf = DomPDFPDF::loadHTML($html);
+
+    // Save the PDF to a file
+    $pdfFilePath = public_path('pdfs/invoices.pdf');
+    $pdf->save($pdfFilePath);
+
+    $hasPDF = Storage::disk('local')->exists($pdfFilePath);
+    // Check if the file was saved successfully
+    if ($hasPDF) {
+        return response()->json(['success' => true, 'file_path' => $pdfFilePath]);
+    } else {
+        return response()->json(['success' => false, 'message' => 'Failed to save PDF file.']);
     }
+}
+
 }
