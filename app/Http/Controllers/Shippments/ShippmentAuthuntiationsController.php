@@ -52,7 +52,7 @@ class ShippmentAuthuntiationsController extends Controller
             $Client = Client::where(['email' => $user->getEmail()])->first();
 
             if(!$Client){
-              $Client = Client::create([
+                $Client = Client::create([
                     'fullname' => $user->getName() ,
                     'phone' => $user->getMobile(),
                     'area_id' => 1, 
@@ -63,7 +63,7 @@ class ShippmentAuthuntiationsController extends Controller
             }
                 
 
-            if($Client->enable_salla_shippments != true){
+            if($Client->enable_salla_shippments == false){
                 return "This Client WasNot  Enabled Salla Feture";
             }
 
