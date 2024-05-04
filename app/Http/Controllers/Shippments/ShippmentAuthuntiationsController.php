@@ -49,7 +49,7 @@ class ShippmentAuthuntiationsController extends Controller
             $Client_json = json_encode($user->toArray());
            
             info($Client_json);
-            
+            dd($Client_json);
             SallaMerchant::updateOrCreate(
                 ['merchant_id' => $user->toArray()['merchant']['id']],
                 [
