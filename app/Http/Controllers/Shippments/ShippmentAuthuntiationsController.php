@@ -48,11 +48,28 @@ class ShippmentAuthuntiationsController extends Controller
 
             $Client_json = json_encode($user->toArray());
            
-            info($Client_json);
-            dd($Client_json);
+          
+            $Client = Client::findOrCreate(
+                [
+                    'email' => $user->getEmail()
+                ],
+                [
+                    'fullname' => $user->getName() ,
+                    'phone' => $user->getMobile(),
+                    'area_id' => 1, 
+                    'sub_area_id' => 1, 
+                    'enable_salla_shippments' => '1', 
+                ]
+            );
+
+            if($Client->enable_salla_shippments != true){
+                return "This Client WasNot  Enabled Salla Feture";
+            }
+
             SallaMerchant::updateOrCreate(
                 ['merchant_id' => $user->toArray()['merchant']['id']],
                 [
+                    'client_id' => $Client->id, 
                     'access_token' =>$token->getToken() ,
                     'refresh_token' => $token->getRefreshToken() ,
                     'expired_date' => $token->getExpires(),

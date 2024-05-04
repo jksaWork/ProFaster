@@ -24,6 +24,7 @@ class SallaOrders extends Model
         "receiver_address_line", 
         "receiver_street_number",
         "receiver_block",
+        'salla_shipment_status',  
         "receiver_postal_code",
     ];
 

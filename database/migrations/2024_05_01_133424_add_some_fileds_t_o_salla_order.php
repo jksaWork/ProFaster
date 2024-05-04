@@ -24,8 +24,6 @@ class AddSomeFiledsTOSallaOrder extends Migration
             $table->string('receiver_city')->nullable();
             $table->string('receiver_postal_code')->nullable();
             $table->string('salla_shipment_status')->nullable();
-            
-            
         });
     
     }
