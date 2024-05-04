@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Shippments;
 
 use App\Events\UpdateShippemntsEvent;
 use App\Http\Controllers\Controller;
+use App\Models\Client;
 use App\Models\ClientServicePrice;
 use App\Models\Order;
 use App\Models\orderTracking;
@@ -170,6 +171,16 @@ class ShipmentsController extends Controller
             }
 
             return "Order Was Cancaeled";
+        }
+
+        if ($request->event == 'app.settings.updated') {
+            info($request->merchant);
+            $merchant  = SallaMerchant::where('merchant_id', $request->merchant)->first();
+            // update user ----------------------------------------;
+            $merchant->update([
+                'client_id' => $request->data['settings']['client_id'],
+            ]);
+            // event(new getProductFromPOS($client->id));
         }
     }
 
