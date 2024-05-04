@@ -39,6 +39,7 @@ class Client extends Model
         'iban_number' ,
         'civil_registry',
         'is_guest',
+        'enable_salla_shippments', 
     ];
 
     protected static function boot(){
