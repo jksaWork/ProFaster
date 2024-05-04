@@ -51,8 +51,8 @@ class ShippmentAuthuntiationsController extends Controller
           
             $Client = Client::where(['email' => $user->getEmail()])->first();
 
-            if($Client){
-                Client::create([
+            if(!$Client){
+              $Client = Client::create([
                     'fullname' => $user->getName() ,
                     'phone' => $user->getMobile(),
                     'area_id' => 1, 
