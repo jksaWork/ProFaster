@@ -49,18 +49,19 @@ class ShippmentAuthuntiationsController extends Controller
             $Client_json = json_encode($user->toArray());
            
           
-            $Client = Client::findOrCreate(
-                [
-                    'email' => $user->getEmail()
-                ],
-                [
+            $Client = Client::where(['email' => $user->getEmail()])->first();
+
+            if($Client){
+                Client::create([
                     'fullname' => $user->getName() ,
                     'phone' => $user->getMobile(),
                     'area_id' => 1, 
                     'sub_area_id' => 1, 
                     'enable_salla_shippments' => '1', 
-                ]
-            );
+                    'client_type' => 'salla_acount', 
+                ]);
+            }
+                
 
             if($Client->enable_salla_shippments != true){
                 return "This Client WasNot  Enabled Salla Feture";
