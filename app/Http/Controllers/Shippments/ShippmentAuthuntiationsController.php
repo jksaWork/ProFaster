@@ -57,7 +57,7 @@ class ShippmentAuthuntiationsController extends Controller
                     'phone' => $user->getMobile(),
                     'area_id' => 1, 
                     'sub_area_id' => 1, 
-                    'enable_salla_shippments' => '1', 
+                    'enable_salla_shippments' => true, 
                     'client_type' => 'salla_acount', 
                 ]);
             }
