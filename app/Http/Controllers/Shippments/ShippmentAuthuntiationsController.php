@@ -57,7 +57,7 @@ class ShippmentAuthuntiationsController extends Controller
                     'area_id' => 1, 
                     'sub_area_id' => 1, 
                     'enable_salla_shippments' => true, 
-                    'client_type' => 'salla_acount',
+                    'client_type' => 'salla_account',
                     'password' => bcrypt($user->getEmail()) 
                 ]);
             }
