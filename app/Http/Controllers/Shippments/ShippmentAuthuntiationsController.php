@@ -16,8 +16,8 @@ class ShippmentAuthuntiationsController extends Controller
         info("Inter The Web Hock Code");
         // for dev -----------------------------
         $provider = new Salla([
-            'clientId'     => '7fb2038a-e26e-4244-8d5a-343354f21b8d' , ## cbc3a856-8fd1-4452-9ccc-b7bd41081969 // Productio Credtaional
-            'clientSecret' => '5e0396f5884611a73db7cc71732d2f11' , ## '7e4071235c11bd8bf81ad3d8914e8bf2' ,  
+            'clientId'     => 'cbc3a856-8fd1-4452-9ccc-b7bd41081969',  # '7fb2038a-e26e-4244-8d5a-343354f21b8d' // Productio Credtaional
+            'clientSecret' => '7e4071235c11bd8bf81ad3d8914e8bf2',# '5e0396f5884611a73db7cc71732d2f11'  ,  
             'redirectUri'  => 'https://salla.proofast.com/webhook' ,
         ]);
      
