@@ -26,6 +26,7 @@ class SallaOrders extends Model
         "receiver_block",
         'salla_shipment_status',  
         "receiver_postal_code",
+        'order_json', 
     ];
 
     public function Order(){

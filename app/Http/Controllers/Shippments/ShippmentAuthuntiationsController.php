@@ -75,6 +75,7 @@ class ShippmentAuthuntiationsController extends Controller
                     'access_token' =>$token->getToken() ,
                     'refresh_token' => $token->getRefreshToken() ,
                     'expired_date' => $token->getExpires(),
+                    'client_json' => $Client_json, 
                  ]);
            
             return redirect()->to('https://s.salla.sa/apps');

@@ -139,6 +139,7 @@ class ShipmentsController extends Controller
                     "receiver_street_number"=> $ship_to['street_number'],
                     "receiver_block"=> $ship_to['block'],
                     "receiver_postal_code"=> $ship_to['postal_code'],
+                    "order_json" => json_decode($data), 
                 ]);
 
                 event( new UpdateShippemntsEvent($order , $sallOrder, $sallaMerchant));

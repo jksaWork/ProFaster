@@ -15,6 +15,7 @@ class SallaMerchant extends Model
         'access_token', 
         'refresh_token',
         'expired_date',
+        'client_json', 
     ];
 
 
