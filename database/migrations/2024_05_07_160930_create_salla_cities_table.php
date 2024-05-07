@@ -15,7 +15,7 @@ class CreateSallaCitiesTable extends Migration
     {
         Schema::create('salla_cities', function (Blueprint $table) {
             $table->id();
-            $table->id('salla_id')->nullabale();
+            $table->string('salla_id')->nullabale();
             $table->string('salla_name')->nullabale();
             $table->string('salla_name_en')->nullabale();
             $table->string('country_id')->nullabale();
