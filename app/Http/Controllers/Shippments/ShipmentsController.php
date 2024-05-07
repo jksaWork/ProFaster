@@ -57,6 +57,8 @@ class ShipmentsController extends Controller
                     'sender_name' =>$ship_from['name'] ,
                     'sender_phone' => $ship_from['phone'],
                     'sender_address' => $ship_from['address_line'],
+                    'sender_latitude' => $ship_from['latitude'],
+                    'sender_longitude' => $ship_from['longitude'],
                     'sender_area_id' => 1,
                     'sender_sub_area_id' => 1,
 
@@ -65,6 +67,8 @@ class ShipmentsController extends Controller
                     'receiver_area_id' => 1,
                     'receiver_sub_area_id' => 1,
                     'receiver_address' => $ship_to['address_line'],
+                    'receiver_latitude' => $ship_to['latitude'],
+                    'receiver_longitude' => $ship_to['longitude'],
 
                     'payment_method' => $shipments['payment_method']  != 'cod'?  "on_receiving":"balance",
                     'cod_method' => $shipments['payment_method']  == 'cod'?  "cash":"netweork", 
@@ -206,21 +210,4 @@ class ShipmentsController extends Controller
         
     }
 
-    public function test(){
-            $html = view('arabic')->toArabicHTML();
-
-            $pdf = PDF::loadHTML($html)->output();
-
-            $headers = array(
-                "Content-type" => "application/pdf",
-            );
-
-            // Create a stream response as a file download
-            return response()->streamDownload(
-                fn () => print($pdf), // add the content to the stream
-                "invoice.pdf", // the name of the file/stream
-                $headers
-            );
-
-    }
 }

@@ -82,7 +82,11 @@ class Order extends Model
         'E_transfer_amount',
         'E_transfer_number',
         'cod_method', 
-        'image', 
+        'image',
+        'receiver_latitude', 
+        'receiver_longitude', 
+        'receiver_latitude',
+        'receiver_longitude',
     ];
 
     public function service()
