@@ -1,0 +1,274 @@
+ {
+  "event": "order.shipment.creating",
+  "merchant": 2045561245,
+  "created_at": "Thu May 02 2024 01:44:57 GMT+0300",
+  "data": {
+    "id": 566017156,
+    "cart_reference_id": null,
+    "reference_id": 116836897,
+    "urls": {
+      "customer": "https://salla.sa/dev-i475npibpxnhybb5/order/D82JZ3kzpyYBWQDYB7Za6Q0rVARwxqPL",
+      "admin": "https://s.salla.sa/orders/order/D82JZ3kzpyYBWQDYB7Za6Q0rVARwxqPL"
+    },
+    "date": {
+      "date": "2024-04-30 12:58:43.000000",
+      "timezone_type": 3,
+      "timezone": "Asia/Riyadh"
+    },
+    "updated_at": {
+      "date": "2024-04-30 14:02:15.000000",
+      "timezone_type": 3,
+      "timezone": "Asia/Riyadh"
+    },
+    "source": "dashboard",
+    "draft": false,
+    "read": true,
+    "source_device": "desktop",
+    "source_details": {
+      "type": "dashboard",
+      "value": null,
+      "device": "desktop",
+      "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+      "ip": null
+    },
+    "status": {
+      "id": 1298199463,
+      "name": "تم التنفيذ",
+      "slug": "completed",
+      "customized": {
+        "id": 2108841950,
+        "name": "تم التنفيذ"
+      }
+    },
+    "is_price_quote": false,
+    "payment_method": "bank",
+    "receipt_image": "https://cdn.salla.sa/pRbaP/9aaa0c0f-ba5e-49ba-a99b-516f041f47ed-500x500-cbzgfJUKZGj905BDIKKJqXkw8hr46X8kamuozNL3.png",
+    "currency": "SAR",
+    "amounts": {
+      "sub_total": {
+        "amount": 10,
+        "currency": "SAR"
+      },
+      "shipping_cost": {
+        "amount": 33,
+        "currency": "SAR"
+      },
+      "cash_on_delivery": {
+        "amount": 0,
+        "currency": "SAR"
+      },
+      "tax": {
+        "percent": "0.00",
+        "amount": {
+          "amount": 0,
+          "currency": "SAR"
+        }
+      },
+      "discounts": [],
+      "total": {
+        "amount": 43,
+        "currency": "SAR"
+      }
+    },
+    "can_cancel": false,
+    "show_weight": false,
+    "can_reorder": false,
+    "is_pending_payment": false,
+    "pending_payment_ends_at": 40425,
+    "total_weight": "١٠ كجم",
+    "rating_link": "https://salla.sa/dev-i475npibpxnhybb5/rating/566017156?expires=1714862697&&signature=8af2164600078b607b282e698e5fd14559e186afd709131381bf0ce5c2f178c7",
+    "shipping": {
+      "id": 1475161990,
+      "app_id": "1765290278",
+      "company": "Shippments 1",
+      "logo": "https://cdn.assets.salla.network/prod/admin/images/shipping_logo.svg",
+      "receiver": {
+        "name": "mohammed altigani",
+        "email": "jksaaltigani@gmail.com",
+        "phone": "966546942969"
+      },
+      "shipper": {
+        "name": "الفرع الرئيسي",
+        "company_name": "dev-i475npibpxnhybb5",
+        "email": "",
+        "phone": "966920034002"
+      },
+      "pickup_address": {
+        "country": "السعودية",
+        "country_code": "SA",
+        "city": "Mecca",
+        "shipping_address": "Mecca,السعودية",
+        "street_number": null,
+        "block": null,
+        "postal_code": null,
+        "geo_coordinates": {
+          "lat": 21.3825905096851,
+          "lng": 39.77319103068542
+        }
+      },
+      "address": {
+        "country": "SA",
+        "country_code": "SA",
+        "city": "الرياض",
+        "shipping_address": " شارع Riyadh, Saudi Arabia، الحي manfoha 12211،, Riyadh, Saudi Arabia,, الرياض, السعودية",
+        "street_number": "Riyadh, Saudi Arabia",
+        "block": "manfoha",
+        "postal_code": "12211",
+        "geo_coordinates": {
+          "lat": 0,
+          "lng": 0
+        }
+      },
+      "shipment": {
+        "id": "0",
+        "pickup_id": null,
+        "tracking_link": "0",
+        "label": []
+      },
+      "policy_options": {
+        "boxes": 1
+      },
+      "shipment_reference": 1968648203,
+      "branch_id": 305998770
+    },
+    "shipments": [
+      {
+        "id": 1968648203,
+        "created_at": null,
+        "type": "shipment",
+        "courier_id": 1475161990,
+        "courier_name": "Shippments 1",
+        "courier_logo": "https://cdn.assets.salla.network/prod/admin/images/shipping_logo.svg",
+        "shipping_number": null,
+        "tracking_number": null,
+        "pickup_id": null,
+        "trackable": false,
+        "tracking_link": null,
+        "label": null,
+        "payment_method": "bank",
+        "source": "dashboard",
+        "status": "creating",
+        "total": {
+          "amount": 43,
+          "currency": "SAR"
+        },
+        "cash_on_delivery": {
+          "amount": 0,
+          "currency": "SAR"
+        },
+        "is_international": false,
+        "total_weight": {
+          "value": 10,
+          "units": "kg"
+        },
+        "packages": [
+          {
+            "item_id": 152268044,
+            "external_id": null,
+            "name": "1",
+            "sku": "",
+            "price": {
+              "amount": 1,
+              "currency": "SAR"
+            },
+            "quantity": 10,
+            "weight": {
+              "value": 10,
+              "units": "kg"
+            }
+          }
+        ],
+        "ship_from": {
+          "type": "branch",
+          "name": "الفرع الرئيسي",
+          "email": "",
+          "phone": "966920034002",
+          "country": "السعودية",
+          "country_id": 1473353380,
+          "country_code": "SA",
+          "city": "Mecca",
+          "city_id": 1939592358,
+          "address_line": "Mecca,السعودية",
+          "street_number": null,
+          "block": null,
+          "postal_code": null,
+          "latitude": 21.3825905096851,
+          "longitude": 39.77319103068542,
+          "branch_id": 305998770
+        },
+        "ship_to": {
+          "type": "address",
+          "name": "mohammed altigani",
+          "email": "jksaaltigani@gmail.com",
+          "phone": "966546942969",
+          "country": "السعودية",
+          "country_id": 1473353380,
+          "country_code": "SA",
+          "city": "Riyadh",
+          "city_id": 1473353380,
+          "address_line": " شارع Riyadh, Saudi Arabia، الحي manfoha 12211،, Riyadh, Saudi Arabia,, الرياض, السعودية",
+          "street_number": "Riyadh, Saudi Arabia",
+          "block": "manfoha",
+          "postal_code": "12211",
+          "latitude": 0,
+          "longitude": 0
+        },
+        "meta": {
+          "app_id": 1765290278,
+          "policy_options": {
+            "boxes": 1
+          }
+        }
+      }
+    ],
+    "shipment_branch": [
+      {
+        "id": 305998770,
+        "name": "الفرع الرئيسي",
+        "status": "active",
+        "is_default": true,
+        "type": {}
+      }
+    ],
+    "customer": {
+      "id": 1282987583,
+      "name": "mohammed altigani",
+      "mobile": "966546942969",
+      "email": "jksaaltigani@gmail.com",
+      "avatar": "https://cdn.assets.salla.network/prod/admin/cp/assets/images/avatar_male.png",
+      "country": "السعودية",
+      "city": ""
+    },
+    "items": [
+      {
+        "id": 152268044,
+        "product_id": 1662621787,
+        "name": "1",
+        "sku": "",
+        "quantity": 10,
+        "weight": 10,
+        "amounts": {
+          "price_without_tax": {
+            "amount": 1,
+            "currency": "SAR"
+          },
+          "total_discount": {
+            "amount": 0,
+            "currency": "SAR"
+          },
+          "tax": {
+            "percent": "0.00",
+            "amount": {
+              "amount": 0,
+              "currency": "SAR"
+            }
+          },
+          "total": {
+            "amount": 10,
+            "currency": "SAR"
+          }
+        }
+      }
+    ]
+  }
+} 
