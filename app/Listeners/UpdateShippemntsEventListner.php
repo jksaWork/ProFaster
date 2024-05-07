@@ -64,25 +64,4 @@ class UpdateShippemntsEventListner
         } 
         
     }
-
-
-
-    public function getFileInvoiceName($id)
-    {
-        // dd("Order id -------", $id);
-        $Orders = [Order::find($id)];
-
-        // Load the blade file content into a variable
-        $html = view('orders.invoices', compact('Orders'))->toArabicHTML();
-        dd($html);
-        // Generate PDF from HTML content
-        $pdf = PDF::loadHTML($html);
-        // Save the PDF to a file
-        $filename = 'pdfs/invoices_' .date('y_m_d_h_i_s'). ' _.pdf';
-
-        $pdfFilePath = public_path($filename);
-        $pdf->save($pdfFilePath);
-
-        return $filename;
-    }
 }
