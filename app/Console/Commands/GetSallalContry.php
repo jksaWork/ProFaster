@@ -79,13 +79,13 @@ class GetSallalContry extends Command
             info("Save City Number" .  $key);
 
             SallaCountry::create( [
-                "salla_id" => $allCities['id'], 
-                "name" => $allCities['name'], 
-                "name_en"=> $allCities['name_en'],
-                "code" => $allCities['code'], 
-                "mobile_code" =>$allCities['mobile_code'] , 
-                "capital" => $allCities['capital'], 
-                'sub_area_id' => $allCities['sub_area_id'], 
+                "salla_id" => $city['id'], 
+                "name" => $city['name'], 
+                "name_en"=> $city['name_en'],
+                "code" => $city['code'], 
+                "mobile_code" =>$city['mobile_code'] , 
+                "capital" => $city['capital'], 
+                'sub_area_id' => $city['sub_area_id'], 
             ]);
         }
     
