@@ -53,7 +53,7 @@ class GetSallalContry extends Command
         $page = 1;
         
         do {
-            info("Get Page Number " .  $page);
+            echo ("Get Page Number " .  $page);
 
             // Fetch the data for the current page
             $response = Http::withHeaders($headers)
@@ -63,7 +63,6 @@ class GetSallalContry extends Command
             if ($response->successful()) {
                 // Extract the data from the response
                 $data = $response->json()['data'];
-        dd($data);
                 // Append the cities from the current page to the array
                 $allCities = array_merge($allCities, $data);
         
