@@ -13,7 +13,7 @@ class AddSomeFiledsToOrderTable extends Migration
      */
     public function up()
     {
-        Schema::table('order', function (Blueprint $table) {
+        Schema::table('orders', function (Blueprint $table) {
             $table->string('receiver_latitude')->nullable();
             $table->string('receiver_latitude')->nullable();
             $table->string('receiver_longitude')->nullable();

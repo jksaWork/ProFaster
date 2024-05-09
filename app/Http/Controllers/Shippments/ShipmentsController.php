@@ -53,7 +53,6 @@ class ShipmentsController extends Controller
                 $weight = $data['total_weight'];
                 $sender_area_id = SallaCountry::getAreaIdOrCreateArea($ship_from['country_id']);
                 dd($sender_area_id);
-                dd($sender_area_id);
                 $validatedData = [
                     'service_id' => $service_id,
                     'sender_name' =>$ship_from['name'] ,
