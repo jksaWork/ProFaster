@@ -9,6 +9,7 @@ use App\Models\ClientServicePrice;
 use App\Models\Order;
 use App\Models\orderTracking;
 use App\Models\SallaCities;
+use App\Models\SallaCity;
 use App\Models\SallaCountry;
 use App\Models\SallaMerchant;
 use App\Models\SallaOrders;
@@ -52,7 +53,14 @@ class ShipmentsController extends Controller
                 $ship_to =  $shipments['ship_to'];
                 $weight = $data['total_weight'];
                 $sender_area_id = SallaCountry::getAreaIdOrCreateArea($ship_from['country_id']);
+                $reciver_area_id = SallaCountry::getAreaIdOrCreateArea($ship_to['country_id']);
+                
+                $sender_sub_area_id = SallaCity::getSubAreaIdOrCreateArea($ship_from['city_id'], $ship_from['country_id']);
+                $reciver_sub_area_id = SallaCity::getSubAreaIdOrCreateArea($ship_from['city_id'], $ship_from['country_id']);
+                
+                
                 dd($sender_area_id);
+
                 $validatedData = [
                     'service_id' => $service_id,
                     'sender_name' =>$ship_from['name'] ,
@@ -60,13 +68,13 @@ class ShipmentsController extends Controller
                     'sender_address' => $ship_from['address_line'],
                     'sender_latitude' => $ship_from['latitude'],
                     'sender_longitude' => $ship_from['longitude'],
-                    'sender_area_id' => 1,
-                    'sender_sub_area_id' => 1,
+                    'sender_area_id' => $sender_area_id,
+                    'sender_sub_area_id' => $sender_sub_area_id,
 
                     'receiver_name' => $ship_to['name'],
                     'receiver_phone_no' => $ship_to['phone'],
-                    'receiver_area_id' => 1,
-                    'receiver_sub_area_id' => 1,
+                    'receiver_area_id' => $reciver_area_id,
+                    'receiver_sub_area_id' => $reciver_sub_area_id,
                     'receiver_address' => $ship_to['address_line'],
                     'receiver_latitude' => $ship_to['latitude'],
                     'receiver_longitude' => $ship_to['longitude'],

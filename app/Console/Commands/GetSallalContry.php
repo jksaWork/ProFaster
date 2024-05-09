@@ -85,7 +85,7 @@ class GetSallalContry extends Command
                 "code" => $city['code'], 
                 "mobile_code" =>$city['mobile_code'] , 
                 "capital" => $city['capital'], 
-                'sub_area_id' => null, 
+                'area_id' => null, 
             ]);
         }
     

@@ -21,7 +21,7 @@ class SallaCity extends Model
 
     public static function getSubAreaIdOrCreateArea($cityId, $CountryId){
         $city = self::where("salla_id" , $cityId)->first();
-        
+
         if($city->sub_area_id){
             return $city->sub_area_id;
         }
@@ -36,7 +36,7 @@ class SallaCity extends Model
         $city->sub_area_id = $sub_area->id;
         $city->save();
 
-        return $area->id; 
+        return $sub_area->id; 
     }
 
 }
