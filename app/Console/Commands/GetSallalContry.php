@@ -75,7 +75,6 @@ class GetSallalContry extends Command
             }
         } while (!empty($data)); // Continue fetching pages until there is no more data
         
-        dd($allCities);
         // Process the fetched cities
         foreach ($allCities as $key => $city) {
             info("Save City Number" .  $key);
