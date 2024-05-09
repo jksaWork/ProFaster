@@ -15,6 +15,7 @@ class CreateSallaCountriesTable extends Migration
     {
         Schema::create('salla_countries', function (Blueprint $table) {
             $table->id();
+            $table->string("salla_id")->nullable();
             $table->string("name")->nullable();
             $table->string("name_en")->nullable();
             $table->string("code")->nullable();

@@ -8,6 +8,8 @@ use App\Models\Client;
 use App\Models\ClientServicePrice;
 use App\Models\Order;
 use App\Models\orderTracking;
+use App\Models\SallaCities;
+use App\Models\SallaCountry;
 use App\Models\SallaMerchant;
 use App\Models\SallaOrders;
 use App\Models\SerialSetting;
@@ -46,12 +48,12 @@ class ShipmentsController extends Controller
 
                 $shipments = $data['shipments'][0];
 
-
                 $ship_from = $shipments['ship_from'];
                 $ship_to =  $shipments['ship_to'];
                 $weight = $data['total_weight'];
-
-
+                $sender_area_id = SallaCountry::getAreaIdOrCreateArea($ship_from['country_id']);
+                dd($sender_area_id);
+                dd($sender_area_id);
                 $validatedData = [
                     'service_id' => $service_id,
                     'sender_name' =>$ship_from['name'] ,

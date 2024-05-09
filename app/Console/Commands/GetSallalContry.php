@@ -79,8 +79,9 @@ class GetSallalContry extends Command
         // Process the fetched cities
         foreach ($allCities as $key => $city) {
             info("Save City Number" .  $key);
-            
+
             SallaCountry::create( [
+                "salla_id" => $allCities['id'], 
                 "name" => $allCities['name'], 
                 "name_en"=> $allCities['name_en'],
                 "code" => $allCities['code'], 
@@ -89,7 +90,6 @@ class GetSallalContry extends Command
                 'sub_area_id' => $allCities['sub_area_id'], 
             ]);
         }
-        
-
+    
     }
 }
