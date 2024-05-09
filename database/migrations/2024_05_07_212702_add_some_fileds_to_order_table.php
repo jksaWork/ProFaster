@@ -15,9 +15,9 @@ class AddSomeFiledsToOrderTable extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             $table->string('receiver_latitude')->nullable();
-            $table->string('receiver_latitude')->nullable();
+            $table->string('sender_latitude')->nullable();
             $table->string('receiver_longitude')->nullable();
-            $table->string('receiver_longitude')->nullable();
+            $table->string('sender_longitude')->nullable();
         });
     }
 
